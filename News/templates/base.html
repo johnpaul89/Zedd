@@ -1,0 +1,36 @@
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% if title %}
+    <title></title>
+    {% else %}
+    <title>Home</title>
+    {% endif %}
+
+    {% block styles %}
+      {% bootstrap_css %}
+    {% endblock %}
+
+  </head>
+  <body>
+
+    {% include 'navbar.html' %}
+
+    {% block content %}
+    <h1 class="text-center">News & Phones</h1>
+    {% endblock %}
+
+
+
+
+    {% block scripts %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      {% bootstrap_javascript %}
+    {% endblock %}
+
+  </body>
+</html>

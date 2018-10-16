@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'News.apps.NewsConfig',
     'Phones.apps.PhonesConfig',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [

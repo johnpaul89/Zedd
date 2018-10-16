@@ -1,1 +1,13 @@
-<h1 style="color: darkred;">Welcome to my first Digital Ocean to be app</h1>
+{% load bootstrap3 %}
+
+{% block styles %}
+    {% bootstrap_css %}
+  {% endblock %}
+
+<h1 class="text-center" style="color: darkred;">Welcome to my first Digital Ocean to be app</h1>
+
+
+{% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     {% bootstrap_javascript %}
+    {% endblock %}
