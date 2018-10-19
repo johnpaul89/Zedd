@@ -1,0 +1,25 @@
+body{
+  background-color: rgba(33, 41, 49, 1);
+}
+.container{
+  border-style: solid;
+  border-color: rgba(2, 11, 20, 1);
+  background-color: white;
+}
+.navbar{
+  background-color: rgba(2, 11, 20, 1);
+}
+.header_row{
+  background-color: rgba(2, 11, 20, 1);
+}
+.content{
+  background-color: #18242f;
+  color: white;
+  padding-bottom: 100%;
+}
+h1{
+  color: white;
+}
+h3{
+  color: white;
+}

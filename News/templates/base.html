@@ -1,4 +1,5 @@
 {% load bootstrap3 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -6,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% if title %}
-    <title></title>
+    <title>Home</title>
     {% else %}
     <title>Home</title>
     {% endif %}
 
     {% block styles %}
       {% bootstrap_css %}
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
   </head>
@@ -21,13 +23,37 @@
     {% include 'navbar.html' %}
 
     {% block content %}
-    <h1 class="text-center">News & Phones</h1>
-      <h1>Welcome to Json-Test</h1>
-      <h2>{{title}}</h2>
-      <br><br>
-      <h3>{{date}}</h3>
-      <br><br>
-      <p>{{article}}</p>
+    <div class="container">
+      <div class="row header_row">
+
+        <h1 class="text-center">News & Phones</h1>
+
+        <div class="col-sm-3 col-md-3 col-lg-3">
+          {% for device_item in phones %}
+              <img src="{{device_item.phone_image.url}}" class="img-responsive phone-image img-rounded" alt="Image">
+              <h3 class="text-center">Price in Ksh {{device_item.priceinkenya}}</h3>
+                <a href="/phones/article/{{device_item.id}}"><h4 class="text-center phone-title"> {{ device_item.title }} </h4></a>
+              <hr size=80>
+
+          {% empty %}
+          <div class="row">
+            <h2 class="text-center">There No Devices</h2>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-6 content">
+          <br>
+          <h4>{{title}}</h4>
+          <h5>{{date}}</h5>
+        </div>
+
+        <div class="col-sm-3 col-md-3 col-lg-3">
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+
+      </div>
+    </div>
     {% endblock %}
 
 

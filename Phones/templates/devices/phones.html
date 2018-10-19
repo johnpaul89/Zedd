@@ -1,0 +1,43 @@
+{% load bootstrap3 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    {% if title %}
+    <title></title>
+    {% else %}
+    <title></title>
+    {% endif %}
+
+    {% block styles %}
+      {% bootstrap_css %}
+    {% endblock %}
+  </head>
+  <body>
+
+    {% include 'navbar.html' %}
+
+    {% block content %}
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        {% for device_item in phones %}
+        <img src="{{device_item.phone_image.url}}" class="img-responsive phone-image img-rounded" alt="Image">
+        <h3 class="text-center">Price in Ksh {{device_item.priceinkenya}}</h3>
+        <a href="/devices/article/{{device_item.id}}"><h4 class="text-center phone-title"> {{ device_item.title }} </h4></a>
+        <hr size=80>
+
+        {% empty %}
+        <div class="row">
+          <h2 class="text-center">There No Devices</h2>
+        </div>
+        {% endfor %}
+      </div>
+    {% endblock %}
+
+    {% block scripts %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      {% bootstrap_javascript %}
+    {% endblock %}
+  </body>
+</html>
