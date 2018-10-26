@@ -1,15 +1,20 @@
 from django.shortcuts import render
-from .getjson import nationTitle, nationDate, nationArticle
-import json
-from Phones.models import Article
+from .models import NewsArticle, PhoneArticle
+import datetime as dt
 
 # Create your views here.
 def zedd(request):
 
-    title = nationTitle
-    date = nationDate
-    article = nationArticle
+    date = dt.date.today()
+    news = NewsArticle.allnews()
+    phones = PhoneArticle.allphones()
 
-    phones = Article.allphones()
+    return render(request, 'base.html', {"date": date, "news": news, "phones": phones })
 
-    return render(request, 'base.html', {"phones": phones, "title": title, "date": date, "article": article})
+def news_article(request, article_id):
+    try:
+        article = NewsArticle.objects.get(id = article_id)
+    except DoesNotExist:
+        raise Http404()
+
+    return render(request, 'news/article.html', {"article": article})

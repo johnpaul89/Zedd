@@ -1,5 +1,6 @@
 {% load bootstrap3 %}
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -26,30 +27,56 @@
     <div class="container">
       <div class="row header_row">
 
-        <h1 class="text-center">News & Phones</h1>
+        <h1 class="text-center">News & Article</h1>
 
         <div class="col-sm-3 col-md-3 col-lg-3">
-          {% for device_item in phones %}
-              <img src="{{device_item.phone_image.url}}" class="img-responsive phone-image img-rounded" alt="Image">
-              <h3 class="text-center">Price in Ksh {{device_item.priceinkenya}}</h3>
-                <a href="/phones/article/{{device_item.id}}"><h4 class="text-center phone-title"> {{ device_item.title }} </h4></a>
-              <hr size=80>
-
+          {% for phone_item in phones %}
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <h4 style="color:white;">{{phone_item.bodyweight}}</h4>
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <h4 style="color: white;">{{phone_item.title}}</h4>
+          </div>
           {% empty %}
           <div class="row">
-            <h2 class="text-center">There No Devices</h2>
+            <h2 class="text-center">There No News Items</h2>
           </div>
           {% endfor %}
         </div>
 
         <div class="col-sm-6 col-md-6 col-lg-6 content">
-          <br>
-          <h4>{{title}}</h4>
-          <h5>{{date}}</h5>
-        </div>
+          {% for news_item in news %}
+            <a href="article/{{news_item.id}}">
+              <div class="col-sm-7 col-md-7 col-lg-7">
+                <br>
+                <h4 style="color:white;">{{news_item.title}}</h4>
+                <h5>{{news_item.date}}</h5>
+              </div>
+              <div class="col-sm-5 col-md-5 col-lg-5">
+                <img class="imageUrl img-responsive" src="{{news_item.imageUrl}}" alt="{{news_item.title}}">
+              </div>
+              {% empty %}
+              <div class="row">
+                <h2 class="text-center">There No News Items</h2>
+              </div>
+            </a>
+            {% endfor %}
+          </div>
 
-        <div class="col-sm-3 col-md-3 col-lg-3">
-          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <div class="col-sm-3 col-md-3 col-lg-3">
+            {% for phone_item in phones %}
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <h4 style="color:white;">{{phone_item.bodyweight}}</h4>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <h4 style="color: white;">{{phone_item.title}}</h4>
+            </div>
+            {% empty %}
+            <div class="row">
+              <h2 class="text-center">There No News Items</h2>
+            </div>
+            {% endfor %}
+          </div>
         </div>
 
       </div>
