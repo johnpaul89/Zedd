@@ -1,0 +1,70 @@
+{% load bootstrap3 %}
+{% load static %}
+
+{% block styles %}
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/search.css' %}">
+{% endblock %}
+
+{% include 'navbar.html' %}
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if phone_articles%}
+      <h2 class="text-center">Found {{ phone_articles|length }} of searched term  in phones</h2>
+      <p >{{message_phone}}</p>
+    {% else %}
+      <!-- <h2> Found 0 articles for the search term {{message_phone}}</h2> -->
+    {% endif %}
+
+  </div>
+
+  {% if phone_articles %}
+    {% for article in phone_articles %}
+  <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+    <a href="/phones/article/{{article.id}}">
+          <img src="{{article.phone_image.url}}" class="img-responsive" alt="{{article.title}}">
+          <h4>{{article.title}}</h4>
+        </a>
+
+  </div>
+  {% endfor %}
+{% endif %}
+
+  <div class="row">
+    <br><br>
+  </div>
+
+  <div class="row">
+    {% if news_articles%}
+      <h2>Found {{ news_articles|length }} of searched term in news  </h2>
+      <p >{{message_news}}</p>
+    {% else %}
+      <!-- <h2> Found 0 articles for the search term {{message_news}}</h2> -->
+    {% endif %}
+
+  </div>
+
+  {% if news_articles %}
+    {% for article in news_articles %}
+  <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+    <a href="/article/{{article.id}}">
+
+          <img src="{{article.imageUrl}}" class="img-responsive" alt="{{article.title}}">
+
+          <h4>{{article.title}}</h4>
+
+        </a>
+  </div>
+  {% endfor %}
+{% endif %}
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %}
+{% endblock %}

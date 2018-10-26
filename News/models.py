@@ -23,6 +23,11 @@ class NewsArticle(models.Model):
         news = cls.objects.filter()
         return news
 
+    @classmethod
+    def search_by_title(cls,search_term):
+        news = cls.objects.filter(title__icontains=search_term)
+        return news
+
 class PhoneArticle(models.Model):
     title = models.CharField(max_length =60)
     network2G = models.CharField(max_length =100)
@@ -79,12 +84,16 @@ class PhoneArticle(models.Model):
     phone_image = models.ImageField(upload_to = 'phonesimages/',  blank=True, null=True)
 
     tags = models.ManyToManyField(tags)
-    # pub_date = models.DateTimeField(auto_now_add=True)
+    pub_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     @classmethod
     def allphones(cls):
-        today = dt.date.today()
         phones = cls.objects.filter()
+        return phones
+
+    @classmethod
+    def search_by_title(cls,search_phone_term):
+        phones = cls.objects.filter(title__icontains=search_phone_term)
         return phones
 
 

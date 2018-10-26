@@ -31,16 +31,20 @@
 
         <div class="col-sm-3 col-md-3 col-lg-3">
           {% for phone_item in phones %}
+          <a href="phones/article/{{phone_item.id}}">
           <div class="col-sm-6 col-md-6 col-lg-6">
-            <h4 style="color:white;">{{phone_item.bodyweight}}</h4>
+            <img src="{{phone_item.phone_image.url}}" class="img-responsive" alt="{{phone_item.title}}">
+            <h4 style="color:white;">{{phone_item.title}}</h4>
           </div>
           <div class="col-sm-6 col-md-6 col-lg-6">
+            <img src="{{phone_item.phone_image.url}}" class="img-responsive" alt="{{phone_item.title}}">
             <h4 style="color: white;">{{phone_item.title}}</h4>
           </div>
           {% empty %}
           <div class="row">
             <h2 class="text-center">There No News Items</h2>
           </div>
+          </a>
           {% endfor %}
         </div>
 
@@ -66,9 +70,11 @@
           <div class="col-sm-3 col-md-3 col-lg-3">
             {% for phone_item in phones %}
             <div class="col-sm-6 col-md-6 col-lg-6">
-              <h4 style="color:white;">{{phone_item.bodyweight}}</h4>
+              <img src="{{phone_item.phone_image.url}}" class="img-responsive" alt="{{phone_item.title}}">
+              <h4 style="color:white;">{{phone_item.title}}</h4>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6">
+              <img src="{{phone_item.phone_image.url}}" class="img-responsive" alt="{{phone_item.title}}">
               <h4 style="color: white;">{{phone_item.title}}</h4>
             </div>
             {% empty %}

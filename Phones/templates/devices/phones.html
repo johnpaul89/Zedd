@@ -6,13 +6,15 @@
     <meta charset="utf-8">
 
     {% if title %}
-    <title></title>
+    <title>Devices Available</title>
     {% else %}
     <title></title>
     {% endif %}
 
     {% block styles %}
       {% bootstrap_css %}
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      <link rel="stylesheet" href="{% static 'css/phones.css' %}">
     {% endblock %}
   </head>
   <body>
@@ -20,19 +22,26 @@
     {% include 'navbar.html' %}
 
     {% block content %}
-      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-        {% for device_item in phones %}
+    <div class="container  phonecol">
+
+      {% for device_item in phones %}
+      <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+
+        <a href="/phones/article/{{device_item.id}}">
         <img src="{{device_item.phone_image.url}}" class="img-responsive phone-image img-rounded" alt="Image">
-        <h3 class="text-center">Price in Ksh {{device_item.priceinkenya}}</h3>
-        <a href="/devices/article/{{device_item.id}}"><h4 class="text-center phone-title"> {{ device_item.title }} </h4></a>
-        <hr size=80>
+        <h4 class="text-center phone-title"> {{ device_item.title }} </h4>
+        <h5 class="text-center">Price in Ksh {{device_item.priceinkenya}}</h5>
+
+        </a>
+        </div>
 
         {% empty %}
         <div class="row">
           <h2 class="text-center">There No Devices</h2>
         </div>
         {% endfor %}
-      </div>
+
+    </div>
     {% endblock %}
 
     {% block scripts %}

@@ -1,0 +1,50 @@
+{% load bootstrap3 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    {% block styles %}
+      {% bootstrap_css %}
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      <link rel="stylesheet" href="{% static 'css/news.css' %}">
+    {% endblock %}
+
+  </head>
+  <body>
+
+    {% include 'navbar.html' %}
+
+    {% block content %}
+    <div class="container">
+      <div class="row newsrow">
+        <div class="container-fluid">
+          {% for news_item in news %}
+          <a href="/article/{{news_item.id}}">
+            <div class="row">
+              <div class="col-sm-7 col-md-7 col-lg-7">
+                <h3>{{news_item.title}}</h3>
+                <h4>{{news_item.date}}</h4>
+              </div>
+              <div class="col-sm-5 col-md-5 col-lg-5">
+                <img src="{{news_item.imageUrl}}" class="img-responsive" alt="{{news_item.title}}">
+              </div>
+            </div>
+          </a>
+
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}
+
+    {% block scripts %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      {% bootstrap_javascript %}
+    {% endblock %}
+
+  </body>
+</html>
