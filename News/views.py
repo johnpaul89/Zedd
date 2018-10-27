@@ -8,8 +8,9 @@ def zedd(request):
     date = dt.date.today()
     news = NewsArticle.allnews()
     phones = PhoneArticle.allphones()
+    nokia = PhoneArticle.nokia_phones()
 
-    return render(request, 'base.html', {"date": date, "news": news, "phones": phones })
+    return render(request, 'base.html', {"date": date, "news": news, "phones": phones, "nokia": nokia })
 
 def all_news(request):
 

@@ -14,6 +14,7 @@
     {% block styles %}
       {% bootstrap_css %}
       <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      <link rel="stylesheet" href="{% static 'css/phone_article.css' %}">
     {% endblock %}
 
   </head>
@@ -70,10 +71,10 @@
             </div>
 
             <div class="col-xs-5">
-              <p>{{article.network2G}}</p>
-              <p>{{article.network3G}}</p>
-              <p>{{article.network4G}}</p>
-              <p>{{article.gprsandedge}}</p>
+              <h5>{{article.network2G}}</p>
+              <h5>{{article.network3G}}</p>
+              <h5>{{article.network4G}}</p>
+              <h5>{{article.gprsandedge}}</p>
             </div>
 
             </div>
@@ -90,8 +91,8 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.launchannounced}}</p>
-              <p>{{article.launchavailable}}</p>
+              <h5>{{article.launchannounced}}</p>
+              <h5>{{article.launchavailable}}</p>
             </div>
 
             </div>
@@ -110,10 +111,10 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.bodydimensions}}</p>
-              <p>{{article.bodybuild}}</p>
-              <p>{{article.bodyweight}}</p>
-              <p>{{article.bodysim}}</p>
+              <h5>{{article.bodydimensions}}</p>
+              <h5>{{article.bodybuild}}</p>
+              <h5>{{article.bodyweight}}</p>
+              <h5>{{article.bodysim}}</p>
             </div>
 
             </div>
@@ -133,11 +134,11 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.displaytype}}</p>
-              <p>{{article.displaysize}}</p>
-              <p>{{article.displayresolution}}</p>
-              <p>{{article.displaymultitouch}}</p>
-              <p>{{article.displayprotection}}</p>
+              <h5>{{article.displaytype}}</p>
+              <h5>{{article.displaysize}}</p>
+              <h5>{{article.displayresolution}}</p>
+              <h5>{{article.displaymultitouch}}</p>
+              <h5>{{article.displayprotection}}</p>
             </div>
 
             </div>
@@ -156,10 +157,10 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.platformos}}</p>
-              <p>{{article.platformchipset}}</p>
-              <p>{{article.platformcpu}}</p>
-              <p>{{article.platformgpu}}</p>
+              <h5>{{article.platformos}}</p>
+              <h5>{{article.platformchipset}}</p>
+              <h5>{{article.platformcpu}}</p>
+              <h5>{{article.platformgpu}}</p>
             </div>
 
             </div>
@@ -176,8 +177,8 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.memorycardslot}}</p>
-              <p>{{article.internalmemory}}</p>
+              <h5>{{article.memorycardslot}}</p>
+              <h5>{{article.internalmemory}}</p>
             </div>
 
             </div>
@@ -195,9 +196,9 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.maincameradual}}</p>
-              <p>{{article.maincamerafeatures}}</p>
-              <p>{{article.maincameravideo}}</p>
+              <h5>{{article.maincameradual}}</p>
+              <h5>{{article.maincamerafeatures}}</p>
+              <h5>{{article.maincameravideo}}</p>
             </div>
 
             </div>
@@ -215,9 +216,9 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.selfiecameradual}}</p>
-              <p>{{article.selfiecamerafeatures}}</p>
-              <p>{{article.selfiecameravideo}}</p>
+              <h5>{{article.selfiecameradual}}</p>
+              <h5>{{article.selfiecamerafeatures}}</p>
+              <h5>{{article.selfiecameravideo}}</p>
             </div>
 
             </div>
@@ -235,9 +236,9 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.soundalerttypes}}</p>
-              <p>{{article.soundloudspeaker}}</p>
-              <p>{{article.soundheadphonejack}}</p>
+              <h5>{{article.soundalerttypes}}</p>
+              <h5>{{article.soundloudspeaker}}</p>
+              <h5>{{article.soundheadphonejack}}</p>
             </div>
 
             </div>
@@ -258,12 +259,12 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.commswlan}}</p>
-              <p>{{article.commsbluetooth}}</p>
-              <p>{{article.commsgps}}</p>
-              <p>{{article.commsnfc}}</p>
-              <p>{{article.commsradio}}</p>
-              <p>{{article.commsusb}}</p>
+              <h5>{{article.commswlan}}</p>
+              <h5>{{article.commsbluetooth}}</p>
+              <h5>{{article.commsgps}}</p>
+              <h5>{{article.commsnfc}}</p>
+              <h5>{{article.commsradio}}</p>
+              <h5>{{article.commsusb}}</p>
             </div>
 
             </div>
@@ -281,9 +282,9 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.featuressensors}}</p>
-              <p>{{article.featuresmessaging}}</p>
-              <p>{{article.featuresbrowser}}</p>
+              <h5>{{article.featuressensors}}</p>
+              <h5>{{article.featuresmessaging}}</p>
+              <h5>{{article.featuresbrowser}}</p>
             </div>
 
             </div>
@@ -299,7 +300,7 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.battery}}</p>
+              <h5>{{article.battery}}</p>
             </div>
 
             </div>
@@ -315,7 +316,7 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.devicecolors}}</p>
+              <h5>{{article.devicecolors}}</p>
             </div>
 
             </div>
@@ -336,12 +337,12 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.performancetests}}</p>
-              <p>{{article.displaytest}}</p>
-              <p>{{article.cameratest}}</p>
-              <p>{{article.loudspeakertest}}</p>
-              <p>{{article.audiotest}}</p>
-              <p>{{article.batterytest}}</p>
+              <h5>{{article.performancetests}}</p>
+              <h5>{{article.displaytest}}</p>
+              <h5>{{article.cameratest}}</p>
+              <h5>{{article.loudspeakertest}}</p>
+              <h5>{{article.audiotest}}</p>
+              <h5>{{article.batterytest}}</p>
             </div>
 
             </div>
@@ -359,9 +360,9 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.priceinkenya}}</p>
-              <p>{{article.priceinnigeria}}</p>
-              <p>{{article.priceinsouthafrica}}</p>
+              <h5>{{article.priceinkenya}}</p>
+              <h5>{{article.priceinnigeria}}</p>
+              <h5>{{article.priceinsouthafrica}}</p>
             </div>
 
             </div>
@@ -377,7 +378,7 @@
             </div>
 
             <div class="col-xs-5 ">
-              <p>{{article.otherfeatures}}</p>
+              <h5>{{article.otherfeatures}}</p>
             </div>
 
             </div>

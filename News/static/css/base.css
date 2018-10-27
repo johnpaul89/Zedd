@@ -9,6 +9,9 @@ body{
 .navbar{
   background-color: rgba(2, 11, 20, 1);
 }
+.navbar .navbar-brand{
+  color: white;
+}
 .header_row{
   background-color: rgba(2, 11, 20, 1);
 }
@@ -20,6 +23,12 @@ body{
 h1{
   color: white;
 }
+h4{
+  color: white;
+}
 h5{
   color: white;
+}
+.phonecol{
+  background-color: rgba(33, 41, 49, 1);
 }

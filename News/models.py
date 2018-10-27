@@ -16,11 +16,11 @@ class NewsArticle(models.Model):
     article = models.TextField()
 
     tags = models.ManyToManyField(tags)
-    # pub_date = models.DateTimeField(auto_now_add=True)
+    pub_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     @classmethod
     def allnews(cls):
-        news = cls.objects.filter()
+        news = cls.objects.filter(pub_date__range=["2018-10-01", "2018-10-27"])
         return news
 
     @classmethod
@@ -88,8 +88,15 @@ class PhoneArticle(models.Model):
 
     @classmethod
     def allphones(cls):
-        phones = cls.objects.filter()
+        phones = cls.objects.filter(pub_date__range=["2018-10-01", "2018-10-27"])
+        # phones = cls.objects.all()[5:10]
+        # phones = cls.objects.filter(title__icontains = 'Nokia')
         return phones
+
+    @classmethod
+    def nokia_phones(cls):
+        nokia = cls.objects.filter(title__icontains = 'Nokia')
+        return nokia
 
     @classmethod
     def search_by_title(cls,search_phone_term):

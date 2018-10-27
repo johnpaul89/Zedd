@@ -73,12 +73,12 @@ class PhoneArticle(models.Model):
 
     editor = models.ForeignKey(Editor, on_delete= models.CASCADE)
     tags = models.ManyToManyField(tags)
-    # pub_date = models.DateTimeField(auto_now_add=True)
+    pub_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
 
     @classmethod
     def allphones(cls):
-        phones = cls.objects.filter()
+        phones = cls.objects.filter(pub_date__range=["2018-10-01", "2018-10-27"])
         return phones
 
     @classmethod

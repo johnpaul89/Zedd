@@ -4,7 +4,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+
+    {% if title %}
     <title></title>
+    {% else %}
+    <title>News</title>
+    {% endif %}
 
     {% block styles %}
       {% bootstrap_css %}
@@ -20,6 +25,7 @@
     {% block content %}
     <div class="container">
       <div class="row newsrow">
+        <h1 class="text-center">News for {{date|date:"l d-F Y"}}</h1>
         <div class="container-fluid">
           {% for news_item in news %}
           <a href="/article/{{news_item.id}}">
