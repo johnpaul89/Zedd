@@ -10,6 +10,30 @@ def available_phones(request):
     phones = PhoneArticle.allphones()
     return render(request, 'devices/phones.html', {"phones":phones})
 
+def nokia_device(request):
+    nokia = PhoneArticle.nokia_phones()
+    return render(request, 'devices/Phones/nokia.html', {"nokia": nokia})
+
+def tecno_device(request):
+    tecno = PhoneArticle.tecno_phones()
+    return render(request, 'devices/Phones/tecno.html', {"tecno": tecno})
+
+def infinix_device(request):
+    infinix = PhoneArticle.infinix_phones()
+    return render(request, 'devices/Phones/infinix.html', {"infinix": infinix})
+
+def samsung_device(request):
+    samsung = PhoneArticle.samsung_phones()
+    return render(request, 'devices/Phones/samsung.html', {"samsung": samsung})
+
+def iphone_device(request):
+    iphone = PhoneArticle.iphone_phones()
+    return render(request, 'devices/Phones/iphone.html', {"iphone": iphone})
+
+def huawei_device(request):
+    huawei = PhoneArticle.huawei_phones()
+    return render(request, 'devices/Phones/huawei.html', {"huawei": huawei})
+
 def article(request, article_id):
     phones = PhoneArticle.allphones()
     try:

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import NewsArticle, PhoneArticle
+from .models import NewsArticle
+from Phones.models import PhoneArticle
 import datetime as dt
 
 # Create your views here.
@@ -8,9 +9,12 @@ def zedd(request):
     date = dt.date.today()
     news = NewsArticle.allnews()
     phones = PhoneArticle.allphones()
-    nokia = PhoneArticle.nokia_phones()
 
-    return render(request, 'base.html', {"date": date, "news": news, "phones": phones, "nokia": nokia })
+    return render(request, 'base.html', {"date": date, "news": news, "phones": phones })
+
+# def nokia_device(request):
+#     nokia = PhoneArticle.nokia_phones()
+#     return render(request, 'devices/Phones/nokia.html', {"nokia": nokia})
 
 def all_news(request):
 

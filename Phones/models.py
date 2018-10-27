@@ -78,14 +78,57 @@ class PhoneArticle(models.Model):
 
     @classmethod
     def allphones(cls):
-        phones = cls.objects.filter(pub_date__range=["2018-10-01", "2018-10-27"])
+        # phones = cls.objects.filter(pub_date__range=["2018-10-01", "2018-10-27"])
+        phones = cls.objects.all()[:5]
         return phones
+
+    @classmethod
+    def nokia_phones(cls):
+        nokia = cls.objects.filter(title__icontains = 'nokia')
+        return nokia
+
+    @classmethod
+    def tecno_phones(cls):
+        tecno = cls.objects.filter(title__icontains = 'tecno')
+        return tecno
+
+    @classmethod
+    def infinix_phones(cls):
+        infinix = cls.objects.filter(title__icontains = 'infinix')
+        return infinix
+
+    @classmethod
+    def samsung_phones(cls):
+        samsung = cls.objects.filter(title__icontains = 'samsung')
+        return samsung
+
+    @classmethod
+    def iphone_phones(cls):
+        iphone = cls.objects.filter(title__icontains = 'iphone')
+        return iphone
+
+    @classmethod
+    def huawei_phones(cls):
+        huawei = cls.objects.filter(title__icontains = 'huawei')
+        return huawei
 
     @classmethod
     def search_by_title(cls, search_term):
         phones = cls.objects.filter(title__icontains=search_term)
         return phones
+    # @classmethod
+    # def allphones(cls):
+    #     phones = cls.objects.filter(pub_date__range=["2018-10-01", "2018-10-27"])
+        # phones = cls.objects.all()[5:10]
+    #     # phones = cls.objects.filter(title__icontains = 'Nokia')
+    #     return phones
+    #
 
+    #
+    # @classmethod
+    # def search_by_title(cls,search_phone_term):
+    #     phones = cls.objects.filter(title__icontains=search_phone_term)
+    #     return phones
 
 
 class Meta:

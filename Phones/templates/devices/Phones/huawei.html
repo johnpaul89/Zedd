@@ -1,0 +1,38 @@
+{% load bootstrap3 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    {% block styles %}
+      {% bootstrap_css %}
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      <link rel="stylesheet" href="{% static 'css/phone_article.css' %}">
+    {% endblock %}
+
+  </head>
+  <body>
+
+    {% include 'navbar.html' %}
+    {% block content %}
+
+    {% for huawei_item in huawei %}
+    <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+      <img src="{{huawei_item.phone_image.url}}" class="img-responsive" alt="{{huawei_item.title}}">
+      <h4>{{huawei_item.title}}</h4>
+    </div>
+    {% empty %}
+    {% endfor %}
+
+    {% endblock %}
+
+    {% block scripts %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      {% bootstrap_javascript %}
+    {% endblock %}
+
+  </body>
+</html>

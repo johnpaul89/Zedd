@@ -25,30 +25,34 @@
 
     {% block content %}
     <div class="container">
+
       <div class="row header_row">
 
         <h1 class="text-center">News & Phones</h1>
 
         <div class="col-sm-3 col-md-3 col-lg-3 phonecol">
-          <div class=" col-sm-4 col-md-4 col-lg-4">
-            <h4>Nokia</h4>
-            <h4>Tecno</h4>
+          <br>
+          <h3>Available Mobile Brands</h3>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <a href="{% url 'nokia_mobiles' %}"><h4>Nokia</h4></a>
+            <a href="{% url 'tecno_mobiles' %}"><h4>Tecno</h4></a>
+            <a href="{% url 'infinix_mobiles' %}"><h4>Infinix</h4></a>
           </div>
-          <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-            <h4>Samsung</h4>
-            <h4>Iphone</h4>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <a href="{% url 'samsung_mobiles' %}"><h4>Samsung</h4></a>
+            <a href="{% url 'iphone_mobiles' %}"><h4>Iphone</h4></a>
+            <a href="{% url 'huawei_mobiles' %}"><h4>Huawei</h4></a>
           </div>
-          <div class="col-sm-4 col-md-4 col-lg-4">
-            <h4>Huawei</h4>
-            <h4>Infinix</h4>
-          </div>
+          <div class="row"></div>
+          <br>
         </div>
+
 
         <div class="col-sm-6 col-md-6 col-lg-6 content">
           <br>
           {% for news_item in news %}
             <a href="article/{{news_item.id}}">
-              <div class="col-sm-7 col-md-7 col-lg-7">
+              <div class=" col-sm-7 col-md-7 col-lg-7">
                 <br>
                 <h4 style="color:white;">{{news_item.title}}</h4>
                 <h5>{{news_item.date}}</h5>
@@ -62,31 +66,38 @@
               </div>
             </a>
             {% endfor %}
+          </a>
             <br>
           </div>
 
-          <div class="col-sm-3 col-md-3 col-lg-3">
 
-            <h3>Latest Devices</h3>
-            {% for phone_item in phones %}
-            <a href="phones/article/{{phone_item.id}}">
+          <div class="col-sm-3 col-md-3 col-lg-3">
             <div class="col-sm-6 col-md-6 col-lg-6">
-              <img src="{{phone_item.phone_image.url}}" class="img-responsive" alt="{{phone_item.title}}">
-              <h4 style="color:white;">{{phone_item.title}}</h4>
-            </div>
-          </a>
-          {% empty %}
-          {% endfor %}
-          <h3>Popular Devices</h3>
-          {% for phone_item in phones %}
-          <a href="phones/article/{{phone_item.id}}">
-            <div class="col-sm-6 col-md-6 col-lg-6">
-              <img src="{{phone_item.phone_image.url}}" class="img-responsive" alt="{{phone_item.title}}">
-              <h4 style="color: white;">{{phone_item.title}}</h4>
-            </div>
-            </a>
+              <h3>Latest Devices</h3>
+              {% for phone_item in phones %}
+
+              <a href="phones/article/{{phone_item.id}}">
+              <!-- <div class="col-sm-6 col-md-6 col-lg-6"> -->
+                <img src="{{phone_item.phone_image.url}}" class="img-responsive" alt="{{phone_item.title}}">
+                <h4 style="color:white;">{{phone_item.title}}</h4>
+              <!-- </div> -->
             {% empty %}
             {% endfor %}
+          </a>
+            </div>
+
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <h3>Popular Devices</h3>
+            {% for phone_item in phones %}
+            <a href="phones/article/{{phone_item.id}}">
+              <!-- <div class="col-sm-6 col-md-6 col-lg-6"> -->
+                <img src="{{phone_item.phone_image.url}}" class="img-responsive" alt="{{phone_item.title}}">
+                <h4 style="color: white;">{{phone_item.title}}</h4>
+              <!-- </div> -->
+              {% empty %}
+              {% endfor %}
+            </a>
+          </div>
           </div>
         </div>
 
