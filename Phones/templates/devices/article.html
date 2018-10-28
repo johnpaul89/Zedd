@@ -4,6 +4,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% if title %}
     <title></title>
@@ -28,54 +29,64 @@
         <div class="row"></div>
 
         <div class="row">
+          <div class="container-fluid">
           <div class="col-sm-4">
             <img src="{{article.phone_image.url}}" class="img-responsive img-rounded article-image"  alt="{{article.title}}">
           </div>
 
           <div class="col-sm-8 top-details">
-            <h1 class="text-center">{{article.title}}</h1>
+            <div class="container-fluid">
+            <h1 class="text-center"> {{article.title}} </h1>
             <div class="col-sm-6">
-            <h4>Announced on {{article.launchannounced}}</h4>
-            <h4>Available on {{article.launchavailable}}</h4>
-            <h4>Available on {{article.launchavailable}}</h4>
-            <h4>Available on {{article.launchavailable}}</h4>
-            <br><br><br><br><br>
+            <h4>Announced on </h4>
+            <p>{{article.launchannounced}}</p>
+            <h4>Available on </h4>
+            <p>{{article.launchavailable}}</p>
+            <h4>Available on </h4>
+            <p>{{article.launchavailable}}</p>
+            <h4>Available on </h4>
+            <p>{{article.launchavailable}}</p>
+
           </div>
           <div class="col-sm-3">
-            <h4>Announced on {{article.launchannounced}}</h4>
+            <h4>Announced on </h4>
+            <p>{{article.launchannounced}}</p>
           </div>
           <div class="col-sm-3">
-            <h4>Available on {{article.launchavailable}}</h4>
+            <h4>Available on </h4>
+            <p>{{article.launchavailable}}</p>
           </div>
+        </div>
           </div>
+        </div>
         </div>
 
         <div class="row"> <br><br> </div>
 
+          <div class="container-fluid">
         <div class="row">
 
 
-          <div class="container">
           <div class="col-sm-12 details">
             <table class="table-responsive table">
       <thead>
       </thead>
       <tbody>
-
+        <div class="container-fluid">
         <tr><th colspan="3"> <h3>Network</h3> </th></tr>
         <tr>
             <td> <h4>2G Network</h4> </td>
-            <td> <p>{{network2G}}</p> </td>
+            <td> <p>{{article.network2G}}</p> </td>
         </tr>
 
         <tr>
           <td> <h4>3G Network</h4> </td>
-          <td>  <p>{{network3G}}</p> </td>
+          <td>  <p>{{article.network3G}}</p> </td>
         </tr>
 
         <tr>
           <td> <h4>3G Network</h4> </td>
-          <td> <p>{{network4G}}</p> </td>
+          <td> <p>{{article.network4G}}</p> </td>
         </tr>
 
 
@@ -325,14 +336,12 @@
             <td> <h4>Other Features</h4> </td>
             <td> <p>{{article.otherfeatures}}</p> </td>
         </tr>
-
+      </div>
       </tbody>
     </table>
           </div>
 
-
         </div>
-
         </div>
 
       </div>
