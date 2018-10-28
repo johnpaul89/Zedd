@@ -11,7 +11,7 @@ def welcome(request):
 def available_phones(request):
     phones = PhoneArticle.allphones()
     page = request.GET.get('page', 1)
-    paginator = Paginator(phones, 7)
+    paginator = Paginator(phones, 4)
     try:
         numbers = paginator.page(page)
     except PageNotAnInteger:
@@ -38,7 +38,7 @@ def available_phones(request):
 def nokia_device(request):
     nokia = PhoneArticle.nokia_phones()
     page = request.GET.get('page', 1)
-    paginator = Paginator(nokia, 7)
+    paginator = Paginator(nokia, 4)
     try:
         numbers = paginator.page(page)
     except PageNotAnInteger:
@@ -51,7 +51,7 @@ def nokia_device(request):
 def tecno_device(request):
     tecno = PhoneArticle.tecno_phones()
     page = request.GET.get('page', 1)
-    paginator = Paginator(tecno, 7)
+    paginator = Paginator(tecno, 4)
     try:
         numbers = paginator.page(page)
     except PageNotAnInteger:
@@ -64,7 +64,7 @@ def tecno_device(request):
 def infinix_device(request):
     infinix = PhoneArticle.infinix_phones()
     page = request.GET.get('page', 1)
-    paginator = Paginator(infinix, 7)
+    paginator = Paginator(infinix, 4)
     try:
         numbers = paginator.page(page)
     except PageNotAnInteger:
@@ -77,7 +77,7 @@ def infinix_device(request):
 def samsung_device(request):
     samsung = PhoneArticle.samsung_phones()
     page = request.GET.get('page', 1)
-    paginator = Paginator(samsung, 7)
+    paginator = Paginator(samsung, 4)
     try:
         numbers = paginator.page(page)
     except PageNotAnInteger:
@@ -89,7 +89,7 @@ def samsung_device(request):
 def iphone_device(request):
     iphone = PhoneArticle.iphone_phones()
     page = request.GET.get('page', 1)
-    paginator = Paginator(iphone, 7)
+    paginator = Paginator(iphone, 4)
     try:
         numbers = paginator.page(page)
     except PageNotAnInteger:
@@ -102,7 +102,7 @@ def iphone_device(request):
 def huawei_device(request):
     huawei = PhoneArticle.huawei_phones()
     page = request.GET.get('page', 1)
-    paginator = Paginator(nokia, 7)
+    paginator = Paginator(nokia, 4)
     try:
         numbers = paginator.page(page)
     except PageNotAnInteger:

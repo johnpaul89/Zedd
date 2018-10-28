@@ -26,14 +26,22 @@
 
   <div class="infinite-container container phonecol">
     {% for number in numbers %}
-      <div class="infinite-item col-xs-12 col-sm-4 col-md-2 col-lg-2">
+      <div class="infinite-item col-xs-4 col-sm-4 col-md-2 col-lg-2">
         <a href="/phones/article/{{number.id}}">
         <img src="{{number.phone_image.url}}" class="img-responsive phone-image img-rounded" alt="{{number.title}}">
-        <h3>{{number.title}}</h3>
+        <h4>{{number.title}}</h4>
         </a>
       </div>
     {% endfor %}
   </div>
+
+  <div class="loading" style="display: none;">
+ Loading...
+</div>
+
+{% if numbers.has_next %}
+ <a class="infinite-more-link" href="?page={{ numbers.next_page_number }}">More</a>
+{% endif %}
 
     {% endblock %}
 
@@ -41,7 +49,6 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
       <script src="{% static 'js/infinite.min.js' %}"></script>
-      {% bootstrap_javascript %}
       <script>
     var infinite = new Waypoint.Infinite({
       element: $('.infinite-container')[0],
@@ -49,11 +56,12 @@
         $('.loading').show();
       },
       onAfterPageLoad: function ($items) {
-        window.history.pushState
         $('.loading').hide();
       }
     });
   </script>
+      {% bootstrap_javascript %}
+
     {% endblock %}
   </body>
 </html>

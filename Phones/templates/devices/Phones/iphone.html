@@ -23,12 +23,19 @@
     <a href="/phones/article/{{number.id}}">
     <div class="infinite-item col-xs-12 col-sm-4 col-md-2 col-lg-2">
       <img src="{{number.phone_image.url}}" class="img-responsive" alt="{{number.title}}">
-      <h4>{{number.title}}</h4>
+      <h4 style="color: white;">{{number.title}}</h4>
     </div>
   </a>
     {% empty %}
     {% endfor %}
     </div>
+    <div class="loading" style="display: none;">
+   Loading...
+ </div>
+
+ {% if numbers.has_next %}
+   <a class="infinite-more-link" href="?page={{ numbers.next_page_number }}">More</a>
+ {% endif %}
     {% endblock %}
 
     {% block scripts %}

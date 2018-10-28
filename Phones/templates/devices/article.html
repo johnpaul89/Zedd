@@ -56,7 +56,7 @@
 
 
           <div class="container">
-          <div class="col-sm-7 details">
+          <div class="col-sm-12 details">
             <table class="table-responsive table">
       <thead>
       </thead>
@@ -330,18 +330,7 @@
     </table>
           </div>
 
-          <div class="col-sm-5">
-            <h2 class="text-center">Similar Devices</h2>
-            {% for device_item in phones %}
-            <div class="col-sm-6">
-              <img src="{{device_item.phone_image.url}}" class="img-responsive phone-image img-rounded" alt="Image">
-                <a href="/phones/article/{{device_item.id}}"><h4 class="text-center phone-title"> {{ device_item.title }} </h4></a>
-            </div>
-            <div class="col-sm-6">
 
-            </div>
-            {% endfor %}
-          </div>
         </div>
 
         </div>

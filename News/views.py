@@ -14,7 +14,7 @@ def zedd(request):
     news = NewsArticle.allnews()
     phones = PhoneArticle.allphones()
     page = request.GET.get('page', 1)
-    paginator = Paginator(news, 7)
+    paginator = Paginator(news, 4)
     try:
         numbers = paginator.page(page)
     except PageNotAnInteger:

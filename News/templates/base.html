@@ -82,25 +82,27 @@
         </div>
         </div>
 
-
         <div class="infinite-container col-sm-8 col-md-8 col-lg-8 content">
-          <br>
           {% for number in numbers %}
             <a href="article/{{number.id}}">
-              <div class="infinite-item">
+              <div class="infinite-item row">
+                <br>
                 <div class="col-xs-6 col-sm-5 col-md-5 col-lg-5">
                   <img class="imageUrl img-responsive" src="{{number.imageUrl}}" alt="{{number.title}}">
                 </div>
-              </div>
+
+
               <div class="col-xs-6 col-sm-7 col-md-7 col-lg-7">
+                <p style=" font-size: 16px; color: white; font-weight: bold; ">{{number.title}}</p>
+                <h6>{{number.date}}</h6>
                 <div class="row">
-                  <div class="col-xs-6">  </div>
-                  <div class="col-xs-6">
-                    <button type="button" class="btn btn-sm btn-info" name="button"> <h5>{{number.source}}</h5> </button>
+                  <div class="container-fluid">
+                  <div class="col-xs-12">
+                    <button type="button" class="btn btn-sm btn-primary" name="button"> <h5>{{number.source}}</h5> </button>
                   </div>
                 </div>
-                <p class="newsparagraph">{{number.title}}</p>
-                <h5>{{number.date}}</h5>
+              </div>
+              </div>
               </div>
 
               {% empty %}
@@ -111,7 +113,14 @@
             {% endfor %}
           </a>
             <br>
-        </div>
+            <div class="loading" style="display: none;">
+       Loading...
+     </div>
+
+     {% if numbers.has_next %}
+       <a class="infinite-more-link" href="?page={{ numbers.next_page_number }}">More</a>
+     {% endif %}
+            </div>
         </div>
 
       </div>

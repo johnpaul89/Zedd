@@ -79,7 +79,7 @@ class PhoneArticle(models.Model):
     @classmethod
     def allphones(cls):
         # phones = cls.objects.filter(pub_date__range=["2018-10-01", "2018-10-27"])
-        phones = cls.objects.filter()
+        phones = cls.objects.filter().order_by('-id')[:500]
         return phones
 
     @classmethod
@@ -120,7 +120,8 @@ class PhoneArticle(models.Model):
     @classmethod
     def latest_phones(cls):
         # latest = cls.objects.all()[:5]
-        latest = cls.objects.filter(pub_date__range=["2018-10-01", "2018-12-31"])[:5]
+        # latest = cls.objects.filter(pub_date__range=["2018-10-01", "2018-12-31"])[:5]
+        latest = cls.objects.filter().order_by('-id')[:5]
         return latest
 
     @classmethod
