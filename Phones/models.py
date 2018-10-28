@@ -79,7 +79,7 @@ class PhoneArticle(models.Model):
     @classmethod
     def allphones(cls):
         # phones = cls.objects.filter(pub_date__range=["2018-10-01", "2018-10-27"])
-        phones = cls.objects.all()[:5]
+        phones = cls.objects.filter()
         return phones
 
     @classmethod
@@ -116,6 +116,17 @@ class PhoneArticle(models.Model):
     def search_by_title(cls, search_term):
         phones = cls.objects.filter(title__icontains=search_term)
         return phones
+
+    @classmethod
+    def latest_phones(cls):
+        # latest = cls.objects.all()[:5]
+        latest = cls.objects.filter(pub_date__range=["2018-10-01", "2018-12-31"])[:5]
+        return latest
+
+    @classmethod
+    def popular_phones(cls):
+        popular = cls.objects.filter(otherfeatures__contains='great').filter(pub_date__range=["2018-10-01", "2018-12-31"])[:5]
+        return popular
     # @classmethod
     # def allphones(cls):
     #     phones = cls.objects.filter(pub_date__range=["2018-10-01", "2018-10-27"])

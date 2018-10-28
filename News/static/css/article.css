@@ -1,6 +1,6 @@
 p{
-  font-size: 16px;
-  letter-spacing: normal;
-  line-height: 22px;
-  word-spacing: 0.8px;
+  font-size: 18px;
+  letter-spacing: -.004em
+  line-height: 1.58;
+  font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
 }

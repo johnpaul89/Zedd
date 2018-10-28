@@ -16,37 +16,44 @@
       <link rel="stylesheet" href="{% static 'css/base.css' %}">
       <link rel="stylesheet" href="{% static 'css/phones.css' %}">
     {% endblock %}
+
   </head>
   <body>
 
     {% include 'navbar.html' %}
 
     {% block content %}
-    <div class="container  phonecol">
 
-      {% for device_item in phones %}
-      <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
-
-        <a href="/phones/article/{{device_item.id}}">
-        <img src="{{device_item.phone_image.url}}" class="img-responsive phone-image img-rounded" alt="Image">
-        <h4 class="text-center phone-title"> {{ device_item.title }} </h4>
-        <h5 class="text-center">Price in Ksh {{device_item.priceinkenya}}</h5>
-
+  <div class="infinite-container container phonecol">
+    {% for number in numbers %}
+      <div class="infinite-item col-xs-12 col-sm-4 col-md-2 col-lg-2">
+        <a href="/phones/article/{{number.id}}">
+        <img src="{{number.phone_image.url}}" class="img-responsive phone-image img-rounded" alt="{{number.title}}">
+        <h3>{{number.title}}</h3>
         </a>
-        </div>
+      </div>
+    {% endfor %}
+  </div>
 
-        {% empty %}
-        <div class="row">
-          <h2 class="text-center">There No Devices</h2>
-        </div>
-        {% endfor %}
-
-    </div>
     {% endblock %}
 
     {% block scripts %}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+      <script src="{% static 'js/infinite.min.js' %}"></script>
       {% bootstrap_javascript %}
+      <script>
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0],
+      onBeforePageLoad: function () {
+        $('.loading').show();
+      },
+      onAfterPageLoad: function ($items) {
+        window.history.pushState
+        $('.loading').hide();
+      }
+    });
+  </script>
     {% endblock %}
   </body>
 </html>

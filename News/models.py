@@ -20,7 +20,7 @@ class NewsArticle(models.Model):
 
     @classmethod
     def allnews(cls):
-        news = cls.objects.filter(pub_date__range=["2018-10-01", "2018-10-28"])
+        news = cls.objects.filter(pub_date__range=["2018-10-01", "2018-12-31"])
         return news
 
     @classmethod

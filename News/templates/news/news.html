@@ -25,17 +25,16 @@
     {% block content %}
     <div class="container">
       <div class="row newsrow">
-        <h1 class="text-center">News for {{date|date:"l d-F Y"}}</h1>
-        <div class="container-fluid">
-          {% for news_item in news %}
-          <a href="/article/{{news_item.id}}">
-            <div class="row">
+        <div class="container-fluid infinite-container">
+          {% for number in numbers %}
+          <a href="/article/{{number.id}}">
+            <div class="row infinite-item">
               <div class="col-sm-7 col-md-7 col-lg-7">
-                <h3>{{news_item.title}}</h3>
-                <h4>{{news_item.date}}</h4>
+                <h3>{{number.title}}</h3>
+                <h4>{{number.date}}</h4>
               </div>
               <div class="col-sm-5 col-md-5 col-lg-5">
-                <img src="{{news_item.imageUrl}}" class="img-responsive" alt="{{news_item.title}}">
+                <img src="{{number.imageUrl}}" class="img-responsive" alt="{{number.title}}">
               </div>
             </div>
           </a>
@@ -49,7 +48,21 @@
 
     {% block scripts %}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+      <script src="{% static 'js/infinite.min.js' %}"></script>
       {% bootstrap_javascript %}
+      <script>
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0],
+      onBeforePageLoad: function () {
+        $('.loading').show();
+      },
+      onAfterPageLoad: function ($items) {
+        window.history.pushState
+        $('.loading').hide();
+      }
+    });
+  </script>
     {% endblock %}
 
   </body>

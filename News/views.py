@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic.list import ListView
 from .models import NewsArticle
 from Phones.models import PhoneArticle
 import datetime as dt
@@ -7,10 +9,20 @@ import datetime as dt
 def zedd(request):
 
     date = dt.date.today()
+    latest = PhoneArticle.latest_phones()
+    popular = PhoneArticle.popular_phones()
     news = NewsArticle.allnews()
     phones = PhoneArticle.allphones()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(news, 7)
+    try:
+        numbers = paginator.page(page)
+    except PageNotAnInteger:
+        numbers = paginator.page(1)
+    except EmptyPage:
+        numbers = paginator.page(paginator.num_pages)
 
-    return render(request, 'base.html', {"date": date, "news": news, "phones": phones })
+    return render(request, 'base.html', {"date": date, "latest": latest, "popular": popular, "news": news, "phones": phones, "numbers": numbers })
 
 # def nokia_device(request):
 #     nokia = PhoneArticle.nokia_phones()
@@ -20,8 +32,16 @@ def all_news(request):
 
     date = dt.date.today()
     news = NewsArticle.allnews()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(news, 7)
+    try:
+        numbers = paginator.page(page)
+    except PageNotAnInteger:
+        numbers = paginator.page(1)
+    except EmptyPage:
+        numbers = paginator.page(paginator.num_pages)
 
-    return render(request, 'news/news.html', {"date": date, "news": news})
+    return render(request, 'news/news.html', {"date": date, "news": news, "numbers": numbers})
 
 def news_article(request, article_id):
     try:

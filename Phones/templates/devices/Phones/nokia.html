@@ -19,19 +19,36 @@
     {% include 'navbar.html' %}
     {% block content %}
 
-    {% for nokia_item in nokia %}
-    <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
-      <img src="{{nokia_item.phone_image.url}}" class="img-responsive" alt="{{nokia_item.title}}">
-      <h4>{{nokia_item.title}}</h4>
+    <div class="infinite-container">
+    {% for number in numbers %}
+    <a href="/phones/article/{{number.id}}">
+    <div class="infinite-item col-xs-12 col-sm-4 col-md-2 col-lg-2">
+      <img src="{{number.phone_image.url}}" class="img-responsive" alt="{{number.title}}">
+      <p>{{number.title}}</p>
     </div>
+    </a>
     {% empty %}
     {% endfor %}
+    </div>
 
     {% endblock %}
 
     {% block scripts %}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+      <script src="{% static 'js/infinite.min.js' %}"></script>
       {% bootstrap_javascript %}
+      <script>
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0],
+      onBeforePageLoad: function () {
+        $('.loading').show();
+      },
+      onAfterPageLoad: function ($items) {
+        window.history.pushState
+        $('.loading').hide();
+      }
+    });
     {% endblock %}
 
   </body>

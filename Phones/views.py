@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic.list import ListView
 from .models import PhoneArticle
 from News.models import NewsArticle
 
@@ -8,31 +10,107 @@ def welcome(request):
 
 def available_phones(request):
     phones = PhoneArticle.allphones()
-    return render(request, 'devices/phones.html', {"phones":phones})
+    page = request.GET.get('page', 1)
+    paginator = Paginator(phones, 7)
+    try:
+        numbers = paginator.page(page)
+    except PageNotAnInteger:
+        numbers = paginator.page(1)
+    except EmptyPage:
+        numbers = paginator.page(paginator.num_pages)
+
+    return render(request, 'devices/phones.html', {'numbers': numbers})
+
+# def available_phones(request):
+#     phones = PhoneArticle.allphones()
+#     numbers_list = range(1, 1000)
+#     page = request.GET.get('page', 1)
+#     paginator = Paginator(numbers_list, 1)
+#     try:
+#         numbers = paginator.page(phones)
+#     except PageNotAnInteger:
+#         numbers = paginator.page(1)
+#     except EmptyPage:
+#         numbers = paginator.page(paginator.num_pages)
+#
+#     return render(request,  'devices/phones.html', {"phones": phones, "numbers": numbers})
 
 def nokia_device(request):
     nokia = PhoneArticle.nokia_phones()
-    return render(request, 'devices/Phones/nokia.html', {"nokia": nokia})
+    page = request.GET.get('page', 1)
+    paginator = Paginator(nokia, 7)
+    try:
+        numbers = paginator.page(page)
+    except PageNotAnInteger:
+        numbers = paginator.page(1)
+    except EmptyPage:
+        numbers = paginator.page(paginator.num_pages)
+
+    return render(request, 'devices/Phones/nokia.html', {"nokia": nokia, "numbers": numbers})
 
 def tecno_device(request):
     tecno = PhoneArticle.tecno_phones()
-    return render(request, 'devices/Phones/tecno.html', {"tecno": tecno})
+    page = request.GET.get('page', 1)
+    paginator = Paginator(tecno, 7)
+    try:
+        numbers = paginator.page(page)
+    except PageNotAnInteger:
+        numbers = paginator.page(1)
+    except EmptyPage:
+        numbers = paginator.page(paginator.num_pages)
+
+    return render(request, 'devices/Phones/tecno.html', {"tecno": tecno, "numbers": numbers})
 
 def infinix_device(request):
     infinix = PhoneArticle.infinix_phones()
-    return render(request, 'devices/Phones/infinix.html', {"infinix": infinix})
+    page = request.GET.get('page', 1)
+    paginator = Paginator(infinix, 7)
+    try:
+        numbers = paginator.page(page)
+    except PageNotAnInteger:
+        numbers = paginator.page(1)
+    except EmptyPage:
+        numbers = paginator.page(paginator.num_pages)
+
+    return render(request, 'devices/Phones/infinix.html', {"infinix": infinix, "numbers": numbers})
 
 def samsung_device(request):
     samsung = PhoneArticle.samsung_phones()
-    return render(request, 'devices/Phones/samsung.html', {"samsung": samsung})
+    page = request.GET.get('page', 1)
+    paginator = Paginator(samsung, 7)
+    try:
+        numbers = paginator.page(page)
+    except PageNotAnInteger:
+        numbers = paginator.page(1)
+    except EmptyPage:
+        numbers = paginator.page(paginator.num_pages)
+    return render(request, 'devices/Phones/samsung.html', {"samsung": samsung, "numbers": numbers})
 
 def iphone_device(request):
     iphone = PhoneArticle.iphone_phones()
-    return render(request, 'devices/Phones/iphone.html', {"iphone": iphone})
+    page = request.GET.get('page', 1)
+    paginator = Paginator(iphone, 7)
+    try:
+        numbers = paginator.page(page)
+    except PageNotAnInteger:
+        numbers = paginator.page(1)
+    except EmptyPage:
+        numbers = paginator.page(paginator.num_pages)
+
+    return render(request, 'devices/Phones/iphone.html', {"iphone": iphone, "numbers": numbers})
 
 def huawei_device(request):
     huawei = PhoneArticle.huawei_phones()
-    return render(request, 'devices/Phones/huawei.html', {"huawei": huawei})
+    page = request.GET.get('page', 1)
+    paginator = Paginator(nokia, 7)
+    try:
+        numbers = paginator.page(page)
+    except PageNotAnInteger:
+        numbers = paginator.page(1)
+    except EmptyPage:
+        numbers = paginator.page(paginator.num_pages)
+
+    return render(request, 'devices/Phones/huawei.html', {"huawei": huawei, "numbers": numbers})
 
 def article(request, article_id):
     phones = PhoneArticle.allphones()

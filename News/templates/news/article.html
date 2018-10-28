@@ -36,11 +36,12 @@
         <div class="col-sm-6 col-md-6 col-lg-6">
           <h2 >{{article.title}}</h2>
           <h3 >{{article.date}}</h3>
+          <br><br>
+          <a href="{{article.articleUrl}}" target="_blank">  <button type="button" class="btn btn-info btn-sm" name="button"> <h5>Read Article from  {{article.source}}</h5></button></a>
         </div>
       </div>
       <br>
       <p>{{article.article}}</p>
-      <a href="{{article.articleUrl}}" target="_blank">  <button type="button" class="btn btn-danger btn-md" name="button">Read Article from Source</button></a>
     </div>
     </div>
     {% endblock %}
