@@ -1,19 +1,20 @@
 from django.db import models
 import datetime as dt
+from ckeditor.fields import RichTextField
 
 class tags(models.Model):
-    name = models.CharField(max_length = 30)
+    name = RichTextField(max_length = 50)
 
     def __str__(self):
         return self.name
 
 class NewsArticle(models.Model):
-    source = models.CharField(max_length = 30)
+    source = RichTextField(max_length = 20)
     title = models.CharField(max_length = 200)
     articleUrl = models.CharField(max_length =120)
     imageUrl = models.CharField(max_length = 120)
-    date = models.CharField(max_length = 60)
-    article = models.TextField()
+    date = RichTextField(max_length = 80)
+    article = RichTextField()
 
     tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)

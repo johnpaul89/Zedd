@@ -38,3 +38,13 @@ h5{
 .phonecol{
   background-color: rgba(33, 41, 49, 1);
 }
+h6{
+  color: white;
+}
+.link-btn{
+  background-color: #18242f;
+}
+.brands{
+  border-right: 1px solid;
+  border-right-color: white;
+}

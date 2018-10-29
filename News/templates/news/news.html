@@ -30,12 +30,19 @@
           {% for number in numbers %}
           <a href="/article/{{number.id}}">
             <div class="row infinite-item">
-              <div class=" col-xs-6 col-sm-7 col-md-7 col-lg-7">
-                <p style=" font-size: 16px; color: white; font-weight: bold;">{{number.title}}</h3>
-                <h6>{{number.date}}</h6>
-              </div>
               <div class="col-xs-6 col-sm-5 col-md-5 col-lg-5">
                 <img src="{{number.imageUrl}}" class="img-responsive" alt="{{number.title}}">
+              </div>
+              <div class=" col-xs-6 col-sm-7 col-md-7 col-lg-7">
+                <p style=" font-size: 16px; color: white; font-weight: bold;">{{number.title| safe}}</h3>
+                <h6>{{number.date| safe}}</h6>
+                <div class="row">
+                  <div class="container-fluid">
+                  <div class="col-xs-12">
+                    <button type="button" class="btn btn-sm  link-btn" name="button"> <h5>{{number.source| safe}}</h5> </button>
+                  </div>
+                </div>
+              </div>
               </div>
             </div>
           </a>

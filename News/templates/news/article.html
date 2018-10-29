@@ -34,14 +34,16 @@
           <img src="{{article.imageUrl}}" class="img-responsive" alt="{{article.title}}">
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6">
-          <h2 >{{article.title}}</h2>
-          <h3 >{{article.date}}</h3>
+          <h2 >{{article.title| safe}}</h2>
+          <h3 style="color: rgba(2, 11, 20, 1);">{{article.date| safe}}</h3>
           <br><br>
-          <a href="{{article.articleUrl}}" target="_blank">  <button type="button" class="btn btn-info btn-sm" name="button"> <h5>Read Article from  {{article.source}}</h5></button></a>
+          <a href="{{article.articleUrl}}" target="_blank">  <button type="button" class="btn btn-info btn-sm btn-primary" name="button"> <h5>Read Article from  {{article.source| safe}}</h5></button></a>
         </div>
       </div>
       <br>
-      <p>{{article.article}}</p>
+      <p>
+        {{article.article| safe}}
+      </p>
     <!-- </div> -->
     </div>
     {% endblock %}

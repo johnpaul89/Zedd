@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url('', include('News.urls')),
     url('^phones/', include('Phones.urls')),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
