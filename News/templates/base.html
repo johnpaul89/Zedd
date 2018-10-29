@@ -16,19 +16,23 @@
     {% block styles %}
       {% bootstrap_css %}
       <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     {% endblock %}
 
   </head>
   <body>
 
     {% include 'navbar.html' %}
-
     {% block content %}
+
     <div class="container">
+      <div class="container-fluid">
 
       <div class="row header_row">
+        <div class="row heading-row">
+          <h1 class="text-center">Tech News & Mobile Phones</h1>
+        </div>
 
-        <h1 class="text-center">Tech News & Mobile Phones</h1>
 
         <div class="col-sm-4 col-md-4 col-lg-4 phonecol">
           <div class="container-fluid">
@@ -122,18 +126,15 @@
      {% endif %}
             </div>
         </div>
-
       </div>
-    </div>
+      </div>
     {% endblock %}
-
-
-
 
     {% block scripts %}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
       <script src="{% static 'js/infinite.min.js' %}"></script>
+      <script src="{% static 'js/navbar.js' %}"></script>
       {% bootstrap_javascript %}
       <script>
     var infinite = new Waypoint.Infinite({
@@ -146,6 +147,7 @@
         $('.loading').hide();
       }
     });
+
   </script>
     {% endblock %}
 

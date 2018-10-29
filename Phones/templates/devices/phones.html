@@ -25,6 +25,7 @@
     {% block content %}
 
   <div class="infinite-container container phonecol">
+    <h1 class="text-center">Mobile Phones</h1>
     {% for number in numbers %}
       <div class="infinite-item col-xs-4 col-sm-4 col-md-2 col-lg-2">
         <a href="/phones/article/{{number.id}}">
@@ -49,6 +50,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
       <script src="{% static 'js/infinite.min.js' %}"></script>
+      <script src="{% static 'js/navbar.js' %}"></script>
       <script>
     var infinite = new Waypoint.Infinite({
       element: $('.infinite-container')[0],

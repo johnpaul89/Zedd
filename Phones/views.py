@@ -102,7 +102,7 @@ def iphone_device(request):
 def huawei_device(request):
     huawei = PhoneArticle.huawei_phones()
     page = request.GET.get('page', 1)
-    paginator = Paginator(nokia, 4)
+    paginator = Paginator(huawei, 4)
     try:
         numbers = paginator.page(page)
     except PageNotAnInteger:
@@ -131,7 +131,25 @@ def search_results(request):
         message_phone = search_phone_term
         message_news = search_news_term
 
-        return render(request, 'news/search.html', {"message_phone": message_phone, "message_news": message_news, "phone_articles": searched_phone_article, "news_articles": searched_news_articles})
+        page = request.GET.get('page', 1)
+        paginator = Paginator(searched_phone_article, 4)
+        try:
+            numbers = paginator.page(page)
+        except PageNotAnInteger:
+            numbers = paginator.page(1)
+        except EmptyPage:
+            numbers = paginator.page(paginator.num_pages)
+
+        page = request.GET.get('page', 1)
+        paginator = Paginator(searched_news_articles, 4)
+        try:
+            newsnumbers = paginator.page(page)
+        except PageNotAnInteger:
+            numbers = paginator.page(1)
+        except EmptyPage:
+            numbers = paginator.page(paginator.num_pages)
+
+        return render(request, 'news/search.html', {"message_phone": message_phone, "newsnumbers": newsnumbers, "numbers": numbers, "message_news": message_news, "phone_articles": searched_phone_article, "news_articles": searched_news_articles})
 
     else:
         message_phone = "You haven't searched for any term"

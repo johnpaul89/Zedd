@@ -23,8 +23,8 @@
     {% include 'navbar.html' %}
 
     {% block content %}
-    <div class="container">
-      <!-- <div class="container-fluid"> -->
+    <div class="container article">
+      <div class="container-fluid ">
 
       <div class="row">
         <br>
@@ -44,12 +44,13 @@
       <p>
         {{article.article| safe}}
       </p>
-    <!-- </div> -->
+    </div>
     </div>
     {% endblock %}
 
     {% block scripts %}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="{% static 'js/navbar.js' %}"></script>
       {% bootstrap_javascript %}
     {% endblock %}
 

@@ -1,70 +1,98 @@
 {% load bootstrap3 %}
 {% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Search results</title>
 
-{% block styles %}
-  {% bootstrap_css %}
-  <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  <link rel="stylesheet" href="{% static 'css/search.css' %}">
-{% endblock %}
+    {% block styles %}
+      {% bootstrap_css %}
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    {% endblock %}
 
-{% include 'navbar.html' %}
-{% block content %}
-<div class="container">
+  </head>
+  <body>
 
-  <div class="row">
-    {% if phone_articles%}
-      <h2 class="text-center">Found {{ phone_articles|length }} of searched term  in phones</h2>
-      <p >{{message_phone}}</p>
-    {% else %}
-      <!-- <h2> Found 0 articles for the search term {{message_phone}}</h2> -->
-    {% endif %}
+    {% include 'navbar.html' %}
+    {% block content %}
+    <div class="infinite-container container">
 
-  </div>
+      <div class=" infinite-item row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          {% if numbers%}
+            <h2 class="text-center">Found {{ numbers|length }} of searched term  in phones</h2>
+            <p >{{message_phone}}</p>
+            {% for article in numbers %}
+            <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+            <a href="/phones/article/{{article.id}}">
+                  <img src="{{article.phone_image.url}}" class="img-responsive" alt="{{article.title}}">
+                  <h4>{{article.title}}</h4>
+                </a>
+                </div>
+                {% endfor %}
+          {% else %}
+            <!-- <h2> Found 0 articles for the search term {{message_phone}}</h2> -->
+          {% endif %}
+        </div>
 
-  {% if phone_articles %}
-    {% for article in phone_articles %}
-  <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
-    <a href="/phones/article/{{article.id}}">
-          <img src="{{article.phone_image.url}}" class="img-responsive" alt="{{article.title}}">
-          <h4>{{article.title}}</h4>
-        </a>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-  </div>
-  {% endfor %}
-{% endif %}
+          {% if newsnumbers%}
+            <h2>Found {{ newsnumbers|length }} of searched term in news  </h2>
+            <p >{{message_news}}</p>
+            {% for article in newsnumbers %}
+            <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+            <a href="/article/{{article.id}}">
 
-  <div class="row">
-    <br><br>
-  </div>
+                  <img src="{{article.imageUrl}}" class="img-responsive" alt="{{article.title}}">
 
-  <div class="row">
-    {% if news_articles%}
-      <h2>Found {{ news_articles|length }} of searched term in news  </h2>
-      <p >{{message_news}}</p>
-    {% else %}
-      <!-- <h2> Found 0 articles for the search term {{message_news}}</h2> -->
-    {% endif %}
+                  <p>{{article.title|truncatechars:10}}</p>
+                  </div>
+            {% endfor %}
+          {% else %}
+            <!-- <h2> Found 0 articles for the search term {{message_news}}</h2> -->
+          {% endif %}
+        </div>
 
-  </div>
+      </div>
 
-  {% if news_articles %}
-    {% for article in news_articles %}
-  <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
-    <a href="/article/{{article.id}}">
 
-          <img src="{{article.imageUrl}}" class="img-responsive" alt="{{article.title}}">
 
-          <h4>{{article.title}}</h4>
-
-        </a>
-  </div>
-  {% endfor %}
-{% endif %}
-
+    <div class="loading" style="display: none;">
+Loading...
 </div>
-{% endblock %}
 
-{% block scripts %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  {% bootstrap_javascript %}
-{% endblock %}
+{% if numbers.has_next %}
+<a class="infinite-more-link" href="?page={{ numbers.next_page_number }}">More</a>
+{% endif %}
+
+
+
+    </div>
+    {% endblock %}
+
+    {% block scripts %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+      <script src="{% static 'js/infinite.min.js' %}"></script>
+      <script src="{% static 'js/navbar.js' %}"></script>
+      {% bootstrap_javascript %}
+      <script>
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0],
+      onBeforePageLoad: function () {
+        $('.loading').show();
+      },
+      onAfterPageLoad: function ($items) {
+        window.history.pushState
+        $('.loading').hide();
+      }
+    });
+  </script>
+    {% endblock %}
+
+  </body>
+</html>
