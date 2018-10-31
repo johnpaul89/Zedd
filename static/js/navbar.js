@@ -8,10 +8,11 @@ $(document).ready(function() {
 
     if (scrollTop > stickyNavTop) {
       $('.navbar').addClass('sticky');
-      $('.navbar-form').hide()
-    } else {
+      $('.topform').hide()
+    }
+    else {
       $('.navbar').removeClass('sticky');
-      $('.navbar-form').show()
+      $('.topform').show()
     }
   };
 

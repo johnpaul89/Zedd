@@ -5,6 +5,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="theme-color" content="rgba(2, 11, 20, 1)">
+    <meta name="msapplication-TileColor" content="rgba(2, 11, 20, 1)">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="rgba(2, 11, 20, 1)">
+
+    {% if title %}
+    <title>Technology News, Product Reviews, Deals &amp; Specifications | Digital Trends</title>
+    {% else %}
+    <title>Technology News, Product Reviews, Deals &amp; Specifications | Digital Trends</title>
+    {% endif %}
+
+    <meta name="description" content="Digital Trends is your premier source for latest technology news in Africa, mobile phones in Africa, laptops in Africa, tablets in Africa, and unbiased e xpert product reviews of HDTVs, laptops, smartphones and more.">
+    <link rel="canonical" href="http://206.189.143.250/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" sizes="16x16 24x24 32x32 64x64">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Latest Africa Technology News, Product Reviews in Africa, smartphones Reviews, Phone Specifications, Phone Specs &amp; How-To's | Digital Trends">
+    <meta property="og:description" content="Digital Trends is your home for Africa technology news,  product reviews , mobile app reviews and smartphones Specifications.">
+    <meta property="og:url" content="http://206.189.143.250/">
+    <meta property="og:site_name" content="Digital Trends">
+    <meta property="og:image" content="https://cdn.dtcn.com/dt/dt-social-image.png">
+    <meta property="og:image:secure_url" content="https://cdn.dtcn.com/dt/dt-social-image.png">
 
     {% if title %}
     <title></title>
@@ -25,48 +48,71 @@
 
     {% block content %}
       <div class="container article">
-
-        <div class="row"></div>
-
+        <div class="container-fluid">
+          <div class="row"><h1 class="text-center"> {{article.title}} Review </h1></div>
+        </div>
+        <div class="container-fluid">
         <div class="row">
-          <div class="container-fluid">
           <div class="col-sm-4">
             <img src="{{article.phone_image.url}}" class="img-responsive img-rounded article-image"  alt="{{article.title}}">
           </div>
 
           <div class="col-sm-8 top-details">
-            <div class="container-fluid">
-            <h1 class="text-center"> {{article.title}} </h1>
-            <div class="col-sm-6">
-            <h4>Announced on </h4>
-            <p>{{article.launchannounced| safe}}</p>
-            <h4>Available on </h4>
-            <p>{{article.launchavailable| safe}}</p>
-            <h4>Available on </h4>
-            <p>{{article.launchavailable| safe}}</p>
-            <h4>Available on </h4>
-            <p>{{article.launchavailable| safe}}</p>
+
+            <h3>Introduction </h3>
+            <img src="{{article.introduction_releasedate_image.url}}" class="img-responsive img-rounded" alt="{{article.description}}">
+            <p>{{article.introduction_releasedate| safe}}</p>
 
           </div>
-          <div class="col-sm-3">
-            <h4>Announced on </h4>
-            <p>{{article.launchannounced| safe}}</p>
-          </div>
-          <div class="col-sm-3">
-            <h4>Available on </h4>
-            <p>{{article.launchavailable| safe}}</p>
-          </div>
+      </div>
         </div>
-          </div>
-        </div>
-        </div>
-
+        <div class="container-fluid">
         <div class="row"> <br><br> </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <h3>Performance and Price in Africa</h3>
+          <img src="{{article.performance_price_image.url}}" class="img-rounded img-responsive" alt="{{article.description| safe}}">
+          <p>{{article.performance_price| safe}}</p>
+
+          <h3>Hardware and Design</h3>
+          <img src="{{article.design_hardware_image.url}}" class="img-rounded img-responsive" alt="{{article.description| safe}}">
+          <p>{{article.design_hardware| safe}}</p>
+
+          <h3>Software</h3>
+          <img src="{{article.software_os_softwarefeatures_image.url}}" class="img-responsive img-rounded" alt="{{article.description}}">
+          <p>{{article.software_os_softwarefeatures| safe}}</p>
+
+          <h3>Battery life</h3>
+          <img src="{{article.batterylife_image.url}}" class="img-responsive img-rounded" alt="{{article.description| safe}}">
+          <p>{{article.batterylife| safe}}</p>
+
+          <h3>Camera</h3>
+          <img src="{{article.camera.url}}" class="img-responsive img-rounded" alt="{{article.description| safe}}">
+          <p>{{article.camera| safe}}</p>
+
+          <h3>What to get when you use it</h3>
+          <img src="{{article.competition_image.url}}" class="img-rounded img-responsive" alt="{{article.description| safe}}">
+          <p>{{article.competition| safe}}</p>
+          <h3>Pro's</h3>
+          <p>{{article.pros| safe}}</p>
+          <h3>Con's</h3>
+          <p>{{article.cons| safe}}</p>
+          <h3>Verdict</h3>
+          <img src="{{article.verdict.url}}" class="img-rounded img-responsive" alt="{{article.description| safe}}">
+          <p>{{article.verdict| safe}}</p>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <br><br>
+        </div>
+      </div>
 
           <div class="container-fluid">
         <div class="row">
-
-
+          <h1>{{article.title}} Specification</h1>
+          <br>
           <div class="col-sm-12 details">
             <table class="table-responsive table">
       <thead>

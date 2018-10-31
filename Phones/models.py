@@ -18,6 +18,30 @@ class tags(models.Model):
         return self.name
 
 class PhoneArticle(models.Model):
+
+    description = models.CharField(max_length =200,  blank=True, null=True)
+    introduction_releasedate = RichTextField(blank=True, null=True)
+    introduction_releasedate_image = models.CharField(max_length =200,  blank=True, null=True)
+    performance_price = RichTextField(blank=True, null=True)
+    performance_price_image = models.CharField(max_length =200,  blank=True, null=True)
+    design_hardware = RichTextField(blank=True, null=True)
+    design_hardware_image = models.CharField(max_length =200,  blank=True, null=True)
+    software_os_softwarefeatures = RichTextField(blank=True, null=True)
+    software_os_softwarefeatures_image = models.CharField(max_length =200,  blank=True, null=True)
+    display = RichTextField(blank=True, null=True)
+    display_image = models.CharField(max_length =200,  blank=True, null=True)
+    batterylife = RichTextField(blank=True, null=True)
+    batterylife_image = models.CharField(max_length =200,  blank=True, null=True)
+    camera = RichTextField(blank=True, null=True)
+    camera_image = models.CharField(max_length =200,  blank=True, null=True)
+    competition = RichTextField(blank=True, null=True)
+    competition_image = models.CharField(max_length =200,  blank=True, null=True)
+    pros = RichTextField(blank=True, null=True)
+    pros_image = models.CharField(max_length =200,  blank=True, null=True)
+    cons = RichTextField(blank=True, null=True)
+    cons_image = models.CharField(max_length =200,  blank=True, null=True)
+    verdict = RichTextField(blank=True, null=True)
+
     title = models.CharField(max_length =60,  blank=True, null=True)
     network2G = RichTextField(max_length =100,  blank=True, null=True)
     network3G = RichTextField(max_length =100,  blank=True, null=True)

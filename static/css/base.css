@@ -17,7 +17,6 @@ body{
 .content{
   background-color: #18242f;
   color: white;
-  padding-bottom: 100%;
 }
 h1{
   color: white;
@@ -43,9 +42,20 @@ h6{
 .link-btn{
   background-color: #18242f;
 }
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #18242f;
+    margin: 1em 0;
+    padding: 0;
+}
 .brands{
   border-right: 1px solid;
-  border-right-color: white;
+  border-right-color: #18242f;
+}
+.brandsrow{
+  background-color: rgba(2, 11, 20, 1);
 }
 .heading-row{
   margin-top: auto;
@@ -57,4 +67,16 @@ h6{
     top: 0;
     z-index: 100;
     border-top: 0;
+}
+.carousel-cell{
+  padding: 1rem;
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: rgba(2, 11, 20, 1);
+   color: white;
+   text-align: center;
 }
