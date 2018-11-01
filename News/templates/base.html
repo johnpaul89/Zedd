@@ -133,9 +133,9 @@
               <div class="row">
                 <h2 class="text-center">No Devices</h2>
               </div>
-              </a>
+
               {% endfor %}
-            </a>
+
             <br>
             <div class="loading" style="display: none;">
               <button type="button" class="btn btn-md btn-info" name="button">Loading ...</button>
@@ -144,6 +144,8 @@
             {% if numbers.has_next %}
             <a class="infinite-more-link" href="?page={{ numbers.next_page_number }}">More</a>
             {% endif %}
+            </a>
+            </a>
             </div>
         </div>
       </div>
