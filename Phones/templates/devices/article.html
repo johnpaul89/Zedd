@@ -47,7 +47,7 @@
     {% include 'navbar.html' %}
 
     {% block content %}
-      <div class="container article">
+      <div class=" article">
         <div class="container-fluid">
           <div class="row"><h1 class="text-center"> {{article.title}} Review </h1></div>
         </div>
@@ -60,7 +60,7 @@
           <div class="col-sm-8 top-details">
 
             <h3>Introduction </h3>
-            <img src="{{article.introduction_releasedate_image.url}}" class="img-responsive img-rounded" alt="{{article.description}}">
+            <img src="{{article.introduction_releasedate_image}}" class="img-responsive img-rounded" alt="{{article.description}}">
             <p>{{article.introduction_releasedate| safe}}</p>
 
           </div>
@@ -72,34 +72,34 @@
       <div class="container-fluid">
         <div class="row">
           <h3>Performance and Price in Africa</h3>
-          <img src="{{article.performance_price_image.url}}" class="img-rounded img-responsive" alt="{{article.description| safe}}">
+          <img src="{{article.performance_price_image}}" class="img-rounded img-responsive" alt="{{article.description| safe}}">
           <p>{{article.performance_price| safe}}</p>
 
           <h3>Hardware and Design</h3>
-          <img src="{{article.design_hardware_image.url}}" class="img-rounded img-responsive" alt="{{article.description| safe}}">
+          <img src="{{article.design_hardware_image}}" class="img-rounded img-responsive" alt="{{article.description| safe}}">
           <p>{{article.design_hardware| safe}}</p>
 
           <h3>Software</h3>
-          <img src="{{article.software_os_softwarefeatures_image.url}}" class="img-responsive img-rounded" alt="{{article.description}}">
+          <img src="{{article.software_os_softwarefeatures_image}}" class="img-responsive img-rounded" alt="{{article.description}}">
           <p>{{article.software_os_softwarefeatures| safe}}</p>
 
           <h3>Battery life</h3>
-          <img src="{{article.batterylife_image.url}}" class="img-responsive img-rounded" alt="{{article.description| safe}}">
+          <img src="{{article.batterylife_image}}" class="img-responsive img-rounded" alt="{{article.description| safe}}">
           <p>{{article.batterylife| safe}}</p>
 
           <h3>Camera</h3>
-          <img src="{{article.camera.url}}" class="img-responsive img-rounded" alt="{{article.description| safe}}">
+          <img src="{{article.camera}}" class="img-responsive img-rounded" alt="{{article.description| safe}}">
           <p>{{article.camera| safe}}</p>
 
           <h3>What to get when you use it</h3>
-          <img src="{{article.competition_image.url}}" class="img-rounded img-responsive" alt="{{article.description| safe}}">
+          <img src="{{article.competition_image}}" class="img-rounded img-responsive" alt="{{article.description| safe}}">
           <p>{{article.competition| safe}}</p>
           <h3>Pro's</h3>
           <p>{{article.pros| safe}}</p>
           <h3>Con's</h3>
           <p>{{article.cons| safe}}</p>
           <h3>Verdict</h3>
-          <img src="{{article.verdict.url}}" class="img-rounded img-responsive" alt="{{article.description| safe}}">
+          <img src="{{article.verdict}}" class="img-rounded img-responsive" alt="{{article.description| safe}}">
           <p>{{article.verdict| safe}}</p>
         </div>
       </div>
