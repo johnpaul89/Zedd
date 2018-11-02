@@ -33,7 +33,7 @@ def all_news(request):
     date = dt.date.today()
     news = NewsArticle.allnews()
     page = request.GET.get('page', 1)
-    paginator = Paginator(news, 4)
+    paginator = Paginator(news, 10)
     try:
         numbers = paginator.page(page)
     except PageNotAnInteger:
@@ -77,7 +77,7 @@ def search_results(request):
         message_news = search_news_term
 
         page = request.GET.get('page', 1)
-        paginator = Paginator(searched_phone_article, 4)
+        paginator = Paginator(searched_phone_article, 10)
         try:
             numbers = paginator.page(page)
         except PageNotAnInteger:
@@ -86,7 +86,7 @@ def search_results(request):
             numbers = paginator.page(paginator.num_pages)
 
         page = request.GET.get('page', 1)
-        paginator = Paginator(searched_news_articles, 4)
+        paginator = Paginator(searched_news_articles, 10)
         try:
             newsnumbers = paginator.page(page)
         except PageNotAnInteger:

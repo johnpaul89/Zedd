@@ -63,11 +63,11 @@
           </div>
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 brands">
             <a href="{% url 'samsung_mobiles' %}"><h4>Samsung</h4> <hr> </a>
-            <a href="{% url 'iphone_mobiles' %}"><h4>infinix</h4> <hr> </a>
+            <a href="{% url 'infinix_mobiles' %}"><h4>infinix</h4> <hr> </a>
           </div>
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <a href="{% url 'samsung_mobiles' %}"><h4>Iphone</h4> <hr> </a>
-            <a href="{% url 'iphone_mobiles' %}"><h4>Huawei</h4> <hr> </a>
+            <a href="{% url 'iphone_mobiles' %}"><h4>Iphone</h4> <hr> </a>
+            <a href="{% url 'huawei_mobiles' %}"><h4>Huawei</h4> <hr> </a>
           </div>
           <div class="container-fluid">
           <div class="row"></div>
@@ -149,11 +149,10 @@
 
               <br>
               <div class="loading" style="display: none;">
-                <button type="button" class="btn btn-md btn-info" name="button">Loading ...</button>
               </div>
 
               {% if numbers.has_next %}
-              <a class="infinite-more-link" href="?page={{ numbers.next_page_number }}">More</a>
+              <a class="infinite-more-link" href="?page={{ numbers.next_page_number }}"><button type="button" class="btn btn-md btn-info" name="button">Loading ...</button></a>
               {% endif %}
 
               {% endfor %}
