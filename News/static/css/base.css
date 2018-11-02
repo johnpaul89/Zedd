@@ -68,8 +68,7 @@ hr {
     z-index: 100;
     border-top: 0;
 }
-.footer {
-   position: fixed;
+.foot {
    left: 0;
    bottom: 0;
    width: 100%;

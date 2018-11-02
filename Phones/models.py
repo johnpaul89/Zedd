@@ -151,7 +151,7 @@ class PhoneArticle(models.Model):
 
     @classmethod
     def popular_phones(cls):
-        popular = cls.objects.filter(otherfeatures__contains='popular').filter(pub_date__range=["2018-10-01", "2018-12-31"])[:5]
+        popular = cls.objects.filter(otherfeatures__icontains='popular').filter(pub_date__range=["2018-10-01", "2018-12-31"])[:5]
         return popular
     # @classmethod
     # def allphones(cls):
