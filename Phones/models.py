@@ -146,7 +146,7 @@ class PhoneArticle(models.Model):
     def latest_phones(cls):
         # latest = cls.objects.all()[:5]
         # latest = cls.objects.filter(pub_date__range=["2018-10-01", "2018-12-31"])[:5]
-        latest = cls.objects.filter().order_by('-id')[:5]
+        latest = cls.objects.filter().order_by('-id')[:10]
         return latest
 
     @classmethod

@@ -44,12 +44,13 @@ def all_news(request):
     return render(request, 'news/news.html', {"date": date, "news": news, "numbers": numbers})
 
 def news_article(request, article_id):
+    latest = PhoneArticle.latest_phones()
     try:
         article = NewsArticle.objects.get(id = article_id)
     except DoesNotExist:
         raise Http404()
 
-    return render(request, 'news/article.html', {"article": article})
+    return render(request, 'news/article.html', {"article": article, "latest": latest})
 
 # def search_news_results(request):
 #

@@ -68,9 +68,6 @@ hr {
     z-index: 100;
     border-top: 0;
 }
-.carousel-cell{
-  padding: 1rem;
-}
 .footer {
    position: fixed;
    left: 0;
@@ -79,4 +76,23 @@ hr {
    background-color: rgba(2, 11, 20, 1);
    color: white;
    text-align: center;
+}
+.carousel-cell{
+  padding: 1rem;
+}
+/* position dots up a bit */
+.flickity-page-dots {
+  bottom: -22px;
+}
+/* dots are lines */
+.flickity-page-dots .dot {
+  height: 4px;
+  width: 40px;
+  margin: 0;
+  border-radius: 0;
+  display: none;
+}
+.img-flick{
+  height: 300px;
+  width: 200px;
 }

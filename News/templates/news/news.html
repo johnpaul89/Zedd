@@ -51,8 +51,8 @@
         <br>
         <div class="container-fluid infinite-container">
           {% for number in numbers %}
-          <a href="/article/{{number.id}}">
             <div class="row infinite-item">
+              <a href="/article/{{number.id}}">
               <div class="col-xs-6 col-sm-5 col-md-5 col-lg-5">
                 <img src="{{number.imageUrl}}" class="img-responsive" alt="{{number.title}}">
               </div>
@@ -67,8 +67,8 @@
                 </div>
               </div>
               </div>
+                </a>
             </div>
-          </a>
           <br>
 
           {% endfor %}
