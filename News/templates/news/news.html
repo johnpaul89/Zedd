@@ -3,6 +3,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128743241-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128743241-1');
+</script>
+
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="theme-color" content="rgba(2, 11, 20, 1)">
@@ -46,8 +56,9 @@
     {% include 'navbar.html' %}
 
     {% block content %}
-    <div class="container">
+    <div class="container-fluid">
       <div class="row newsrow">
+        <h2 class="text-center" style="color: white;">News</h2>
         <br>
         <div class="container-fluid infinite-container">
           {% for number in numbers %}
